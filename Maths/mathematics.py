@@ -54,4 +54,12 @@ def integer_division(a, b):
     elif b == 0:
         raise ValueError("Invalid input. Cannot divide by zero.")
     else:
-        return a // b
+        result = int(a // b)
+        return result
+
+def pythagoras(a, b):
+    """This function returns the hypotenuse of a right-angled triangle."""
+    if isnan(a) or isnan(b):
+        raise ValueError("Invalid input. Please provide two numbers.")
+    else:
+        return (a ** 2 + b ** 2) ** 0.5
