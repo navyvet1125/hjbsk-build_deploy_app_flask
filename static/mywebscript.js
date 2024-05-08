@@ -1,7 +1,7 @@
 // Description: This script is used to make a request to the server to perform an operation
 
-let runOperation = (operator) => {
-    if (operator === "sum" || operator === "sub" || operator === "mul" || operator === "div") {
+let runOperation = (op) => {
+    if (op === "sum" || op === "sub" || op === "mul" || op === "div" || op === "mod" || op === "pow" || op === "intdiv") {
         let num1 = parseFloat(document.getElementById("num1").value);
         let num2 = parseFloat(document.getElementById("num2").value);
         const url = `http://localhost:5000/${operator}?num1=${num1}&num2=${num2}`;
