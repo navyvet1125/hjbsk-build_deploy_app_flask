@@ -1,29 +1,64 @@
+"""This module contains the server code for the mathematics problem solver."""
+
 from flask import Flask, render_template, request
-# Import the Maths package here
+from Maths.mathematics import summation, subtraction, multiplication, division
 
 app = Flask("Mathematics Problem Solver")
 
-@app.route("/sum")
+@app.route("/sum", methods=["GET"])
 def sum_route():
-    num1 = float(request.args.get('num1'))
-    num2 = float(request.args.get('num2'))
-    # Write your code here
+    """This function returns the sum of two numbers."""
+    try:
+        num1 = float(request.args.get('num1'))
+        num2 = float(request.args.get('num2'))
+        result = summation(num1, num2)
+        return {'result':str(result)}, 200
+    except Exception:
+        return {'result': "Invalid input. Please provide two numbers."}, 400
 
 @app.route("/sub")
 def sub_route():
-    num1 = float(request.args.get('num1'))
-    num2 = float(request.args.get('num2'))
-    # Write your code here
+    """This function returns the difference between two numbers."""
+    try:
+        num1 = float(request.args.get('num1'))
+        num2 = float(request.args.get('num2'))
+        result = subtraction(num1, num2)
+        return {'result':str(result)}, 200
+    except Exception:
+        return {'result': "Invalid input. Please provide two numbers."}, 400
 
 @app.route("/mul")
 def mul_route():
-    num1 = float(request.args.get('num1'))
-    num2 = float(request.args.get('num2'))
-    # Write your code here  
+    """This function returns the product of two numbers."""
+    try:
+        num1 = float(request.args.get('num1'))
+        num2 = float(request.args.get('num2'))
+        result = multiplication(num1, num2)
+        return {'result':str(result)}, 200
+    except Exception:
+        return {'result': "Invalid input. Please provide two numbers."}, 400
+
+@app.route("/div")
+def div_route():
+    """This function returns the division of two numbers."""
+    try:
+        num1 = float(request.args.get('num1'))
+        num2 = float(request.args.get('num2'))
+        if num2 == 0:
+            return {'result': "Invalid input. Cannot divide by zero."}, 400
+        result = division(num1, num2)
+        return {'result':str(result)}, 200
+    except ValueError:
+        return {'result': "Invalid input. Please provide two numbers."}, 400
+    except ZeroDivisionError:
+        return {'result': "Invalid input. Cannot divide by zero."}, 400
+    except Exception:
+        return {'result': "Invalid input. Please provide two numbers."}, 400
 
 @app.route("/")
 def render_index_page():
-    # Write your code here
-    
+    """This function renders the index page."""
+    return render_template('index.html')
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
