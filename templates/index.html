@@ -7,46 +7,45 @@
             text-align: center;
         }
         .btn {
-            margin: 5px;
+            padding: 5px;
         }
     </style>
 
 </head>
 <body>
     <div class="container">
-    <div class="card">
+    <div class="row">
 	<h1 class="center-heading">Basic Mathematical Application</h1> 
-        <div style="padding: 25px 25px 25px 25px;">
-        <div class="card-body">
-            <div class="mb-3">
+        <div>
+        <div class="row">
+            <div class="col-md-3">
                 <label class="form-label">Number 1</label>
                 <input type="number" class="form-control" id="num1">
             </div>
     
-            <div class="mb-3">
+            <div class="col-md-3">
                 <label class="form-label">Number 2</label>
                 <input type="number" class="form-control" id="num2">
             </div>
     
             <div style="padding: 25px;">
                 <h2 class="col-sm-12 center-heading">Operations</h2>
-                <button onclick="runOperation('sum')" class="btn btn-secondary col-sm-3">Add</button>
-                <button onclick="runOperation('sub')" class="btn btn-secondary col-sm-3">Subtract</button>
-                <button onclick="runOperation('mul')" class="btn btn-secondary col-sm-3">Multiply</button>
-                <button onclick="runOperation('div')" class="btn btn-secondary col-sm-3">Divide</button>
-                <button onclick="runOperation('pow')" class="btn btn-secondary col-sm-3">Power</button>
-                <button onclick="runOperation('mod')" class="btn btn-secondary col-sm-3">Modulus</button>
-                <button onclick="runOperation('intdiv')" class="btn btn-secondary col-sm-4">Integer Division</button>
-                <button onclick="runOperation('pythag')" class="btn btn-secondary col-sm-4">Pythagorean Theorem</button>
-                <button onclick="sayHello()" class="btn btn-success col-sm-6">Say Hello</button>
+                <button onclick="runOperation('sum')" class="btn btn-secondary col-md-3">Add</button>
+                <button onclick="runOperation('sub')" class="btn btn-secondary col-md-3">Subtract</button>
+                <button onclick="runOperation('mul')" class="btn btn-secondary col-md-3">Multiply</button>
+                <button onclick="runOperation('div')" class="btn btn-secondary col-md-3">Divide</button>
+                <button onclick="runOperation('pow')" class="btn btn-secondary col-md-3">Power</button>
+                <button onclick="runOperation('mod')" class="btn btn-secondary col-md-3">Modulus</button>
+                <button onclick="runOperation('intdiv')" class="btn btn-secondary col-md-4">Integer Division</button>
+                <button onclick="runOperation('pythag')" class="btn btn-secondary col-md-5">Pythagorean Theorem</button>
+                <button onclick="sayHello()" class="btn btn-success col-md-6">Say Hello</button>
             </div>
-	<h2 class="center-heading">Response from server</h2> 
-            <div style="padding: 25px 25px 25px 25px;">
+            <div class="row">
+	            <h2 class="center-heading">Response from server</h2> 
+            </div>
+            <div style="row">
     
-            <div id="system_response" style="padding: 25px;
-            border: 1px solid #ccc;
-            border-radius: 5%;
-            "></div>
+            <div id="system_response" style="padding: 25px;" class="col-sm-5"></div>
         </div>
     </div>
     </div>
