@@ -3,13 +3,13 @@
 from flask import Flask, render_template, request
 from flask_cors import CORS
 from Maths.mathematics import (
-    summation, 
-    subtraction, 
-    multiplication, 
-    division, 
-    power, 
-    modulus, 
-    integer_division, 
+    summation,
+    subtraction,
+    multiplication,
+    division,
+    power,
+    modulus,
+    integer_division,
     pythagoras,
     )
 
