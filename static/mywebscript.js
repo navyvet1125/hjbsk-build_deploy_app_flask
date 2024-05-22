@@ -31,6 +31,7 @@ const sayHello = async () => {
     document.getElementById("clearButton").style.display = "block";
 }
 
+// Clear system response
 const clearResponse = () => {
     document.getElementById("system_response").innerHTML = "";
     document.getElementById("clearButton").style.display = "none";
