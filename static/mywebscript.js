@@ -8,22 +8,30 @@ const runOperation = async (op) => {
         
         try {
             let res = await axios.get(url);
-            let data = res.data;
-            document.getElementById("system_response").innerHTML = "Result: " +  data.result;
+            let result = res.data.result;
+            document.getElementById("system_response").innerHTML += `<li>Result: ${result} </li>`;
         } catch (err) {
-            document.getElementById("system_response").innerHTML = "Error: " + err;
+            let result = err.response.data.result;
+            document.getElementById("system_response").innerHTML += `<li class='alert alert-danger'>Error: ${result} </li>`;
         }
     } else {
-        document.getElementById("system_response").innerHTML = "Invalid operation!";
+        document.getElementById("system_response").innerHTML += "<li class='alert alert-danger'> Invalid operation! </li>";
     }
+    document.getElementById("clearButton").style.display = "block";
 };
 
 const sayHello = async () => {
     try {
         let res = await axios.get("http://192.168.12.161:5000/hello")
         let data = res.data
-        document.getElementById("system_response").innerHTML = data.message;
+        document.getElementById("system_response").innerHTML += `<li> ${data.message} </li>`;
     } catch (err) {
-        document.getElementById("system_response").innerHTML = "Error: " + err;
+        document.getElementById("system_response").innerHTML += `<li>Error: ${err} </li>`;
     }
+    document.getElementById("clearButton").style.display = "block";
+}
+
+const clearResponse = () => {
+    document.getElementById("system_response").innerHTML = "";
+    document.getElementById("clearButton").style.display = "none";
 }
